@@ -1,0 +1,77 @@
+---
+title: "Matrix Calculation"
+author: "Zhuqian Zhou"
+date: "1/22/2025"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Define matrices
+
+```{r}
+A = matrix(data = c(2, -1, 0, 5, 0, -2), nrow = 3, ncol = 2, byrow = FALSE, dimnames = NULL) # all arguments expressed out loud
+B = matrix(data = c(3, 0, 0, 1), nrow =2, ncol = 2) # omit arguments with default values
+C = matrix(c(1,2,3,1,1,1,4,5,6), 3, 3) # omit variable names for arguments
+d = matrix(c(2,1,0), 3, 1)
+print(A)
+print(B)
+print(C)
+print(d)
+```
+
+## Matrix Calculation
+
+1. AB
+```{r}
+Y1 = A%*%B # pay attention to the "%" for matrix multiplication
+print(Y1)
+```
+
+2. 5B; BI
+```{r}
+Y2a = 5*B
+Y2b = B*diag(x = 1,nrow = 2)
+print(Y2a)
+print(Y2b)
+```
+
+3. d'A
+```{r}
+Y3 = t(d)%*%A
+print(Y3)
+```
+
+4. C+C'
+```{r}
+Y4 =  C+t(C)
+print(Y4)
+```
+
+5. trace(C)
+```{r}
+Y5 =  sum(diag(C))
+print (Y5)
+```
+
+6. rank(A)
+```{r}
+Y6 = qr(A)$rank
+print(Y6)
+```
+
+7. rank(C)
+```{r}
+Y7 = qr(C)$rank
+print(Y7)
+```
+
+8. determinant(C)
+```{r}
+Y8 = det(C)
+print(Y8)
+```
