@@ -32,46 +32,57 @@ Y1 = A%*%B # pay attention to the "%" for matrix multiplication
 print(Y1)
 ```
 
-2. 5B; BI
+2. 5B
 ```{r}
-Y2a = 5*B
-Y2b = B*diag(x = 1,nrow = 2)
-print(Y2a)
-print(Y2b)
+Y2 = 5*B
+print(Y2)
 ```
 
-3. d'A
+3. BI
 ```{r}
-Y3 = t(d)%*%A
+Y3 = B*diag(x = 1,nrow = 2)
 print(Y3)
 ```
 
-4. C+C'
+4. d'A
 ```{r}
-Y4 =  C+t(C)
+Y4 = t(d)%*%A
 print(Y4)
 ```
 
-5. trace(C)
+5. C+C'
 ```{r}
-Y5 =  sum(diag(C))
-print (Y5)
+Y5 =  C+t(C)
+print(Y5)
 ```
 
-6. rank(A)
+6. trace(C)
 ```{r}
-Y6 = qr(A)$rank
+Y6 =  sum(diag(C))
 print(Y6)
 ```
 
-7. rank(C)
+7. rank(A)
 ```{r}
-Y7 = qr(C)$rank
+Y7 = qr(A)$rank
 print(Y7)
 ```
 
-8. determinant(C)
+8. rank(C)
 ```{r}
-Y8 = det(C)
+Y8 = qr(C)$rank
 print(Y8)
+```
+
+9. determinant(C)
+```{r}
+Y9 = det(C)
+print(Y9)
+```
+
+10. row sum of C using matrix multiplicaiton
+```{r}
+v = matrix(data = 1, nrow = 3, ncol = 1)
+Y10 = C%*%v
+print(Y10)
 ```

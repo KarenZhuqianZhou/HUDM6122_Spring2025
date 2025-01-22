@@ -358,7 +358,7 @@ display: none;
 
 <div id="define-matrices" class="section level2">
 <h2>Define matrices</h2>
-<pre class="r"><code>A = matrix(data = c(2, -1, 0, 5, 0, -2), nrow = 3, ncol = 2, byrow = FALSE, dimnames = NULL) # all arguments expressed outloud
+<pre class="r"><code>A = matrix(data = c(2, -1, 0, 5, 0, -2), nrow = 3, ncol = 2, byrow = FALSE, dimnames = NULL) # all arguments expressed out loud
 B = matrix(data = c(3, 0, 0, 1), nrow =2, ncol = 2) # omit arguments with default values
 C = matrix(c(1,2,3,1,1,1,4,5,6), 3, 3) # omit variable names for arguments
 d = matrix(c(2,1,0), 3, 1)
@@ -394,58 +394,71 @@ print(Y1)</code></pre>
 ## [2,]   -3    0
 ## [3,]    0   -2</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>5B; BI</li>
+<li>5B</li>
 </ol>
-<pre class="r"><code>Y2a = 5*B
-Y2b = B*diag(x = 1,nrow = 2)
-print(Y2a)</code></pre>
+<pre class="r"><code>Y2 = 5*B
+print(Y2)</code></pre>
 <pre><code>##      [,1] [,2]
 ## [1,]   15    0
 ## [2,]    0    5</code></pre>
-<pre class="r"><code>print(Y2b)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>BI</li>
+</ol>
+<pre class="r"><code>Y3 = B*diag(x = 1,nrow = 2)
+print(Y3)</code></pre>
 <pre><code>##      [,1] [,2]
 ## [1,]    3    0
 ## [2,]    0    1</code></pre>
-<ol start="3" style="list-style-type: decimal">
+<ol start="4" style="list-style-type: decimal">
 <li>d’A</li>
 </ol>
-<pre class="r"><code>Y3 = t(d)%*%A
-print(Y3)</code></pre>
+<pre class="r"><code>Y4 = t(d)%*%A
+print(Y4)</code></pre>
 <pre><code>##      [,1] [,2]
 ## [1,]    3   10</code></pre>
-<ol start="4" style="list-style-type: decimal">
+<ol start="5" style="list-style-type: decimal">
 <li>C+C’</li>
 </ol>
-<pre class="r"><code>Y4 =  C+t(C)
-print(Y4)</code></pre>
+<pre class="r"><code>Y5 =  C+t(C)
+print(Y5)</code></pre>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    2    3    7
 ## [2,]    3    2    6
 ## [3,]    7    6   12</code></pre>
-<ol start="5" style="list-style-type: decimal">
+<ol start="6" style="list-style-type: decimal">
 <li>trace(C)</li>
 </ol>
-<pre class="r"><code>Y5 =  sum(diag(C))
-print (Y5)</code></pre>
+<pre class="r"><code>Y6 =  sum(diag(C))
+print(Y6)</code></pre>
 <pre><code>## [1] 8</code></pre>
-<ol start="6" style="list-style-type: decimal">
+<ol start="7" style="list-style-type: decimal">
 <li>rank(A)</li>
 </ol>
-<pre class="r"><code>Y6 = qr(A)$rank
-print(Y6)</code></pre>
-<pre><code>## [1] 2</code></pre>
-<ol start="7" style="list-style-type: decimal">
-<li>rank(C)</li>
-</ol>
-<pre class="r"><code>Y7 = qr(C)$rank
+<pre class="r"><code>Y7 = qr(A)$rank
 print(Y7)</code></pre>
 <pre><code>## [1] 2</code></pre>
 <ol start="8" style="list-style-type: decimal">
+<li>rank(C)</li>
+</ol>
+<pre class="r"><code>Y8 = qr(C)$rank
+print(Y8)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<ol start="9" style="list-style-type: decimal">
 <li>determinant(C)</li>
 </ol>
-<pre class="r"><code>Y8 = det(C)
-print(Y8)</code></pre>
+<pre class="r"><code>Y9 = det(C)
+print(Y9)</code></pre>
 <pre><code>## [1] 0</code></pre>
+<ol start="10" style="list-style-type: decimal">
+<li>row sum of C using matrix multiplicaiton</li>
+</ol>
+<pre class="r"><code>v = matrix(data = 1, nrow = 3, ncol = 1)
+Y10 = C%*%v
+print(Y10)</code></pre>
+<pre><code>##      [,1]
+## [1,]    6
+## [2,]    8
+## [3,]   10</code></pre>
 </div>
 
 
